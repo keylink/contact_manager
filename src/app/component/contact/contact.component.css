@@ -1,0 +1,15 @@
+.padding_left {
+  margin-top: 60px;
+}
+label.col-md-3, label.col-md-4 {
+  color: #000;
+}
+.user__info {
+  margin: 2px 0 0px;
+  border: 1px solid #ccc;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.btn__fix {
+  margin: 25px 0;
+}

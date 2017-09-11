@@ -1,0 +1,422 @@
+<div class="container padding_left" >
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="list-group">
+        <a href="#" class="list-group-item active">All Contact</a>
+        <a class="btn btn-primary btn__fix" [routerLink]="['/contacts']">Back</a>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <form (submit)="onEditSubmit()">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>Add Contact</strong>
+          </div>           
+          <div class="panel-body">
+            <div class="form-horizontal">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Name</label>
+                    <div class="col-md-8">
+                      <input class="col-md-8" type="text" class="form-control" [(ngModel)]="name" name="name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Username</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" [(ngModel)]="username" name="username">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Email</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" [(ngModel)]="email" name="email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Phone</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" [(ngModel)]="phone" name="phone">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Website</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" [(ngModel)]="website" name="website">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <div *ngIf='avatar !== undefined' class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                      <img src="{{avatar}}" alt="Photo">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <accordion>
+                    <accordion-group heading="address">
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">City</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" [(ngModel)]="city" name="city">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">Country</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" [(ngModel)]="country" name="country">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">State</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" [(ngModel)]="state" name="state">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">streetA</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" [(ngModel)]="streetA" name="streetA">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">streetB</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" [(ngModel)]="streetB" name="streetB">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">streetC</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" [(ngModel)]="streetC" name="streetC">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">streetD</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" [(ngModel)]="streetD" name="streetD">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">lat</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" [(ngModel)]="lat" name="lat">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">lng</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" [(ngModel)]="lng" name="lng">
+                        </div>
+                      </div>
+                    </accordion-group>
+                  </accordion>
+                  <accordion>
+                    <accordion-group heading="company">
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">Company name</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" [(ngModel)]="company_name" name="company_name">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">Company catchPhrase</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" [(ngModel)]="company_catchPhrase" name="company_catchPhrase">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">Company bs</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" [(ngModel)]="company_bs" name="company_bs">
+                        </div>
+                      </div>
+                    </accordion-group>
+                  </accordion>
+                  <accordion>
+                    <accordion-group heading="Account history">
+                      <accordion>
+                        <accordion-group heading="Account history">
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account name</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_name" name="account_name">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_account" name="account_account">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">account amount</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_amount" name="account_amount">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account business</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_business" name="account_business">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account date</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_date" name="account_date">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">account type</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_type" name="account_type">
+                            </div>
+                          </div>
+                        </accordion-group>
+                      </accordion>
+                        <accordion>
+                        <accordion-group heading="Account history 2">
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account name</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_name2" name="account_name2">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_account2" name="account_account2">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">account amount</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_amount2" name="account_amount2">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account business</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_business2" name="account_business2">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account date</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_date2" name="account_date2">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">account type</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_type2" name="account_type2">
+                            </div>
+                          </div>
+                        </accordion-group>
+                      </accordion>
+                        <accordion>
+                        <accordion-group heading="Account history 3">
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account name</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_name3" name="account_name3">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_account3" name="account_account3">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">account amount</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_amount3" name="account_amount3">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account business</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_business3" name="account_business3">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account date</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_date3" name="account_date3">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">account type</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="account_type3" name="account_type3">
+                            </div>
+                          </div>
+                        </accordion-group>
+                      </accordion>
+                    </accordion-group>
+                  </accordion>
+                  <accordion>
+                    <accordion-group heading="post">
+                      <accordion>
+                        <accordion-group heading="post 1">
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post paragraph</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="post_paragraph" name="post_paragraph">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post sentence</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="post_sentence" name="post_sentence">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post sentences</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="post_sentences" name="post_sentences">
+                            </div>
+                          </div>
+                          <accordion>
+                            <accordion-group heading="post-word">
+                              <div class="form-group">
+                                <label class="col-md-4 text-center">post word 1</label>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" [(ngModel)]="post_word11" name="post_word11">
+                                </div>
+                              </div> 
+                              <div class="form-group">
+                                <label class="col-md-4 text-center">post word 2</label>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" [(ngModel)]="post_word12" name="post_word12">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-md-4 text-center">post word 3</label>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" [(ngModel)]="post_word13" name="post_word13">
+                                </div>
+                              </div>
+                            </accordion-group>
+                          </accordion>
+                        </accordion-group>
+                      </accordion>
+                      <accordion>
+                        <accordion-group heading="post 2">
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post paragraph</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="post_paragraph2" name="post_paragraph2">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post sentence</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="post_sentence2" name="post_sentence2">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post sentences</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="post_sentences2" name="post_sentences2">
+                            </div>
+                          </div>
+                          <accordion>
+                            <accordion-group heading="post-word">
+                              <div class="form-group">
+                                <label class="col-md-4 text-center">post word 1</label>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" [(ngModel)]="post_word21" name="post_word21">
+                                </div>
+                              </div> 
+                              <div class="form-group">
+                                <label class="col-md-4 text-center">post word 2</label>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" [(ngModel)]="post_word22" name="post_word22">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-md-4 text-center">post word 3</label>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" [(ngModel)]="post_word23" name="post_word23">
+                                </div>
+                              </div>
+                            </accordion-group>
+                          </accordion>
+                        </accordion-group>
+                      </accordion>
+                      <accordion>
+                        <accordion-group heading="post 3">
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post paragraph</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="post_paragraph3" name="post_paragraph3">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post sentence</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="post_sentence3" name="post_sentence3">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post sentences</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control" [(ngModel)]="post_sentences3" name="post_sentences3">
+                            </div>
+                          </div>
+                          <accordion>
+                            <accordion-group heading="post-word">
+                              <div class="form-group">
+                                <label class="col-md-4 text-center">post word 1</label>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" [(ngModel)]="post_word31" name="post_word31">
+                                </div>
+                              </div> 
+                              <div class="form-group">
+                                <label class="col-md-4 text-center">post word 2</label>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" [(ngModel)]="post_word32" name="post_word32">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-md-4 text-center">post word 3</label>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" [(ngModel)]="post_word33" name="post_word33">
+                                </div>
+                              </div>
+                            </accordion-group>
+                          </accordion>
+                        </accordion-group>
+                      </accordion>
+                    </accordion-group>
+                  </accordion>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="row">
+                  <div class="col-md-offset-3 col-md-6">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a [routerLink]="['/contacts']" class="btn btn-default">Cancel</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

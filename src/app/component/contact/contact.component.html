@@ -1,0 +1,226 @@
+<div class="container padding_left" *ngIf='contact != undefined'>
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="list-group">
+        <a href="#" class="list-group-item active">All Contact</a>
+        <a class="btn btn-primary btn__fix" [routerLink]="['/contacts']">Back</a>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <form (submit)="onEditSubmit()">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>Contact Info</strong>
+          </div>           
+          <div class="panel-body">
+            <div class="form-horizontal">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Name</label>
+                    <div class="col-md-8">
+                      <p class="user__info">{{contact.id}}</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Username</label>
+                    <div class="col-md-8">
+                      <p class="user__info">{{contact.username}}</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Email</label>
+                    <div class="col-md-8">
+                      <p class="user__info">{{contact.email}}</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Phone</label>
+                    <div class="col-md-8">
+                      <p class="user__info">{{contact.phone}}</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Website</label>
+                    <div class="col-md-8">
+                      <p class="user__info">{{contact.website}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                      <img src="{{contact.avatar}}" alt="Photo">
+                    </div>
+                     <a class="btn btn-default" [routerLink]="['/edit-contact/' + contact.$key]">Edit</a>
+                     <a class="btn btn-danger" (click)="onDelete()" [routerLink]="['/contacts']">Delete</a>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <accordion>
+                    <accordion-group heading="Address">
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">City</label>
+                        <div class="col-md-8">
+                          <p class="user__info">{{contact.address.city}}</p>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">Country</label>
+                        <div class="col-md-8">
+                          <p class="user__info">{{contact.address.country}}</p>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">State</label>
+                        <div class="col-md-8">
+                          <p class="user__info">{{contact.address.state}}</p>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">streetA</label>
+                        <div class="col-md-8">
+                          <p class="user__info">{{contact.address.streetA}}</p>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">streetB</label>
+                        <div class="col-md-8">
+                          <p class="user__info">{{contact.address.streetB}}</p>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">streetC</label>
+                        <div class="col-md-8">
+                          <p class="user__info">{{contact.address.streetC}}</p>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">streetD</label>
+                        <div class="col-md-8">
+                          <p class="user__info">{{contact.address.streetD}}</p>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">lat</label>
+                        <div class="col-md-8">
+                          <p class="user__info">{{contact.address.geo.lat}}</p>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">lng</label>
+                        <div class="col-md-8">
+                          <p class="user__info">{{contact.address.geo.lng}}</p>
+                        </div>
+                      </div>
+                    </accordion-group>
+                  </accordion>
+                  <accordion>
+                    <accordion-group heading="Company">
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">Company name</label>
+                        <div class="col-md-8">
+                          <p class="user__info">{{contact.company.name}}</p>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">Company catchPhrase</label>
+                        <div class="col-md-8">
+                          <p class="user__info">{{contact.company.catchPhrase}}</p>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 text-center">Company bs</label>
+                        <div class="col-md-8">
+                          <p class="user__info">{{contact.company.bs}}</p>
+                        </div>
+                      </div>
+                    </accordion-group>
+                  </accordion>
+                  <accordion>
+                    <accordion-group heading="Account history" *ngIf='contact.accountHistory !== undefined'>
+                      <accordion *ngFor="let item of contact.accountHistory; let i = index" heading="Account history">
+                        <accordion-group heading="Account history  {{i}}">
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account name</label>
+                            <div class="col-md-8">
+                              <p class="user__info">{{item.name}}</p>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account</label>
+                            <div class="col-md-8">
+                              <p class="user__info">{{item.account}}</p>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">account amount</label>
+                            <div class="col-md-8">
+                              <p class="user__info">{{item.amount}}</p>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account business</label>
+                            <div class="col-md-8">
+                              <p class="user__info">{{item.business}}</p>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">Account date</label>
+                            <div class="col-md-8">
+                              <p class="user__info">{{item.date}}</p>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">account type</label>
+                            <div class="col-md-8">
+                              <p class="user__info">{{item.type}}</p>
+                            </div>
+                          </div>
+                        </accordion-group>
+                      </accordion>
+                    </accordion-group>
+                  </accordion>
+                  <accordion>
+                    <accordion-group heading="Post">
+                      <accordion *ngFor="let item of contact.posts; let i = index">
+                        <accordion-group heading="post {{i}}">
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post paragraph</label>
+                            <div class="col-md-8">
+                              <p class="user__info">{{item.paragraph}}</p>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post sentence</label>
+                            <div class="col-md-8">
+                              <p class="user__info">{{item.sentence}}</p>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post sentences</label>
+                            <div class="col-md-8">
+                              <p class="user__info">{{item.sentences}}</p>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 text-center">post word</label>
+                            <div class="col-md-8">
+                              <p class="user__info">{{item.words}}</p>
+                            </div>
+                          </div> 
+                        </accordion-group>
+                      </accordion>
+                    </accordion-group>
+                  </accordion>
+                </div>
+              </div>  
+            </div>
+          </div> 
+        </div>          
+      </form>
+    </div>
+  </div>
+</div>
